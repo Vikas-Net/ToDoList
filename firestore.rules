@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Open to anyone who has your site URL and config. Fine for a personal board; see README to lock it down.
+    match /tasks/{id} {
+      allow read, write: if true;
+    }
+  }
+}
